@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../introduction/">
+        <link rel="prev" href="../..">
       
       
         <link rel="next" href="../cli/">
@@ -284,29 +284,6 @@
             Getting Started
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../introduction/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Introduction
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -656,22 +633,27 @@
 
 
 <h1 id="cicd">CI/CD<a class="headerlink" href="#cicd" title="Permanent link">&para;</a></h1>
-<p>Scan your code on every push / pull request - it's that fast.
-Your code never leaves the workflow. It is not logged anywhere.
-We don't even have a database 😉. There are no incremental scans,
-we care about your privacy, and don't cache <em>any</em> part of your code.</p>
+<p>Scanning your code on every pull request is the preferred way
+of monitoring your applications for vulnerabilities. Your code never
+leaves the workflow environment. It is not logged anywhere.
+There are no incremental scans, and no part of your code is cached.
+The rules used to scan your code were carefully picked by both
+LLMs and security professionals. Normal users don't need to adjust
+rules at all ( though they sure <em>can</em> if they want to ).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Currently, only GitHub Actions yaml flavor is supported.
-Please open an issue if you are using other pipelines.</p>
+<p>Currently, only GitHub Action yaml is supported.
+Jenkins, CircleCI and others will be released soon</p>
 </div>
-<p>Simply copy this to your GitHub actions:</p>
+<p>Simply copy this yaml to your GitHub actions:</p>
+<details class="info">
+<summary>GitHub Action ( <em>click to watch</em> )</summary>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dhscanner-sast</span>
 
 <span class="nt">on</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">push</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">branches</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span><span class="w">  </span>
 
 <span class="nt">jobs</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">run-dhscanner</span><span class="p">:</span>
@@ -706,6 +688,7 @@ Please open an issue if you are using other pipelines.</p>
 <span class="w">            </span><span class="no">exit 1</span>
 <span class="w">          </span><span class="no">fi</span>
 </code></pre></div>
+</details>
 
 
 

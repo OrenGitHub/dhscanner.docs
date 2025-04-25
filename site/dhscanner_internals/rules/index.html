@@ -290,29 +290,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting_started/introduction/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Introduction
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../getting_started/ci_cd/" class="md-nav__link">
         
   
@@ -657,34 +634,51 @@
 
 <h1 id="atoms">Atoms<a class="headerlink" href="#atoms" title="Permanent link">&para;</a></h1>
 <p>Code facts are represented by <em>predicates</em> and <em>varaibles</em>.
-For the most part, variables are just <em>code locations</em>. Start line, start column, end line and end column.
-In addition, the filename itself is also a part of the variable name. Note that special characters inside
-the filename are "escaped" ( <code>/</code> for instance ).</p>
-<p>Here is an exmaple of a simple unary predicate: <code>kb_callable</code>.
-The example demonstrates that the code "entity" in <code>pkg/ratelimit/result_test.go</code> is callbale. That is, a method,
-function or lambda.</p>
-<p>Atom predicates are prefixed with <em>kb</em> for knowledge base.</p>
+For the most part, variables are just <em>code locations</em>.
+Start line, start column, end line and end column.
+In addition, the filename itself is also a part of the variable name.
+Note that special characters inside the filename are "escaped" ( <code>/</code> for instance ).</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <div class="highlight"><pre><span></span><code><span class="c1">%</span>
-<span class="c1">% this is how a code fact looks</span>
+<span class="c1">% this is how a code fact looks like:</span>
 <span class="c1">%</span>
 <span class="nf">kb_callable</span><span class="p">(</span> <span class="s s-Atom">startloc_47_17_endloc_47_21_pkg_slash_ratelimit_slash_result_test_dot_go</span> <span class="p">).</span>
 </code></pre></div>
 </div>
-<p>The variables' order aims to be understood from context.
-Here are the API predicates related to calls:  </p>
+<p>Atom predicates are prefixed with <em>kb</em> for knowledge base.</p>
 <div class="admonition info">
-<p class="admonition-title">Calls</p>
-<div class="highlight"><pre><span></span><code><span class="nf">kb_arg_i_for_call</span><span class="p">(</span> <span class="nv">Arg</span><span class="p">,</span> <span class="nv">Index</span><span class="p">,</span> <span class="nv">Call</span> <span class="p">).</span>
+<p class="admonition-title">Strings</p>
+<div class="highlight"><pre><span></span><code><span class="nf">kb_const_string</span><span class="p">(</span> <span class="nv">String</span><span class="p">,</span> <span class="s s-Atom">&#39;value&#39;</span> <span class="p">).</span>
 </code></pre></div>
 </div>
-<p>Predicates that are <em>not</em> related to the actual code base,
-are prefixed with <code>utils_</code>, and they are considered to be an integral part of the API:</p>
+<p>The variables' order aims to be understood from context.</p>
 <div class="admonition info">
-<p class="admonition-title">Predicate: utils_arg_for_call / 2</p>
-<div class="highlight"><pre><span></span><code><span class="c1">% This is the actual implementation in the code</span>
-<span class="nf">utils_arg_for_call</span><span class="p">(</span> <span class="nv">Arg</span><span class="p">,</span> <span class="nv">Call</span> <span class="p">).</span>
+<p class="admonition-title">Calls</p>
+<div class="highlight"><pre><span></span><code><span class="nf">kb_call</span><span class="p">(</span> <span class="nv">Call</span> <span class="p">).</span>
+<span class="nf">kb_arg_for_call</span><span class="p">(</span> <span class="nv">Arg</span><span class="p">,</span> <span class="nv">Call</span> <span class="p">).</span>
+<span class="nf">kb_arg_i_for_call</span><span class="p">(</span> <span class="nv">Arg</span><span class="p">,</span> <span class="nv">Index</span><span class="p">,</span> <span class="nv">Call</span> <span class="p">).</span>
+</code></pre></div>
+</div>
+<p>Callables are functions, methods and lambdas.</p>
+<div class="admonition info">
+<p class="admonition-title">Callables</p>
+<div class="highlight"><pre><span></span><code><span class="nf">kb_callable</span><span class="p">(</span> <span class="nv">Callable</span> <span class="p">).</span>
+<span class="nf">kb_callable_has_param</span><span class="p">(</span> <span class="nv">Callable</span><span class="p">,</span> <span class="nv">Param</span> <span class="p">).</span>
+</code></pre></div>
+</div>
+<p>Class inheritance is of bounded depth. So are <em>all</em> transitive closures.</p>
+<div class="admonition info">
+<p class="admonition-title">Classes</p>
+<div class="highlight"><pre><span></span><code><span class="nf">kb_class_name</span><span class="p">(</span> <span class="nv">Class</span><span class="p">,</span> <span class="s s-Atom">&#39;name&#39;</span> <span class="p">).</span>
+<span class="nf">kb_subclass_of</span><span class="p">(</span> <span class="nv">Class</span><span class="p">,</span> <span class="s s-Atom">&#39;super&#39;</span> <span class="p">).</span>
+<span class="nf">kb_method_of_class</span><span class="p">(</span> <span class="nv">Method</span><span class="p">,</span> <span class="nv">Class</span> <span class="p">).</span>
+</code></pre></div>
+</div>
+<p>Dataflow edges are by far the most common facts.</p>
+<div class="admonition info">
+<p class="admonition-title">Dataflow</p>
+<div class="highlight"><pre><span></span><code><span class="nf">kb_dataflow</span><span class="p">(</span> <span class="nv">From</span><span class="p">,</span> <span class="nv">To</span> <span class="p">).</span>
 </code></pre></div>
 </div>
 
