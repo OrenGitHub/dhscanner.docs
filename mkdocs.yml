@@ -23,6 +23,7 @@ extra:
 extra_css:
   - stylesheets/custom.css
 nav:
+  - Home: index.md
   - Getting Started:
       - Introduction: getting_started/introduction.md
       - CI/CD: getting_started/ci_cd.md
