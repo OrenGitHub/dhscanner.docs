@@ -1,0 +1,34 @@
+:root {
+  font-size: 21px;
+}
+
+.md-header__title .md-header__ellipsis::before {
+  content: "Dhscanner\A Static Code Analyzer\A Reachable Vulnerabilites Only - Built For Busy AppSec Teams";
+  line-height: 1.5;
+  white-space: pre;
+  display: block;
+  margin-top: -12px;
+}
+
+.md-header__title .md-header__ellipsis span {
+  display: none;
+}
+
+.md-nav__title {
+  font-size: 1rem; /* e.g. 16px */
+}
+
+.md-nav__link {
+  font-size: 0.85rem; /* e.g. 15px */
+}
+
+.md-typeset {
+  font-size: 20px;     /* or 110%, or 1.1rem — your choice */
+  line-height: 1.6;    /* optional for better readability */
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  font-size: 20px;
+  line-height: 1.5;
+}

@@ -24,18 +24,17 @@ extra_css:
   - stylesheets/custom.css
 nav:
   - Getting Started:
-      - Introduction: getting-started/introduction.md
-      - CI/CD: getting-started/introduction.md
-      - CLI: getting-started/installation.md
-  - Adding Frameworks:
-      - Commands: cli/commands.md
-      - Examples: cli/examples.md
-  - Dhscanner Atoms:
-      - Overview: write-your-own-rules/overview.md
-      - Rule Examples: write-your-own-rules/rule-examples.md
+      - Introduction: getting_started/introduction.md
+      - CI/CD: getting_started/ci_cd.md
+      - CLI: getting_started/cli.md
+  - Dhscanner Internals:
+      - Design: dhscanner_internals/design.md
+      - Rules: dhscanner_internals/rules.md
   - Research:
-      - Scanning at scale: research/articles.md
-      - Heavy workloads: research/vulnerability-patterns.md
+      - Scanning at scale: research/scanning_at_scale.md
+      - Heavy workloads: research/heavy_workloads.md
+  - Contribution:
+      - Usage: contribution/usage.md
 
 markdown_extensions:
   - toc:
