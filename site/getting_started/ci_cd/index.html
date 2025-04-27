@@ -633,13 +633,23 @@
 
 
 <h1 id="cicd">CI/CD<a class="headerlink" href="#cicd" title="Permanent link">&para;</a></h1>
-<p>Scanning your code on every pull request is the preferred way
-of monitoring your applications for vulnerabilities. Your code never
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The <strong>easiest</strong> way to monitor your application is
+by setting a regular workflow to scan your code on
+every <strong>push</strong> and <strong>pull request</strong>. Even for code repositories with
+thousands of files, it typically takes just a couple of minutes
+to complete.</p>
+</div>
+<p>We care about your privacy. Your code never
 leaves the workflow environment. It is not logged anywhere.
-There are no incremental scans, and no part of your code is cached.
-The rules used to scan your code were carefully picked by both
-LLMs and security professionals. Normal users don't need to adjust
-rules at all ( though they sure <em>can</em> if they want to ).</p>
+There are no incremental scans. No part of your code is cached.</p>
+<div class="admonition tip">
+<p class="admonition-title">Pro Tip</p>
+<p>Normal users don't need to configure <strong>anything</strong>.
+The default setting of our scanner uses rules that were <strong>carefully picked</strong> by both
+security professionals and large language models ( LLMs ).</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Currently, only GitHub Action yaml is supported.

@@ -629,9 +629,29 @@
 
 
 <h1 id="home">Home<a class="headerlink" href="#home" title="Permanent link">&para;</a></h1>
-<p>What took you so long to get here ? We waited for you !
-Anyway, you're here, that's what important. Take a look on
-the categories on the left, and start scanning your application !</p>
+<p>Dhscanner is a highly-parallel static code analyzer ( <a href="https://en.wikipedia.org/wiki/Static_application_security_testing">SAST</a> engine ).
+It aims to compete with established solutions like <a href="https://semgrep.dev/index.html">Semgrep</a>,
+<a href="https://www.opengrep.dev/">Opengrep</a> and <a href="https://codeql.github.com/">CodeQl</a>, while being <strong>completely free</strong> for both
+public and <strong>private</strong> repositories. The feauture that allows it to
+discriminate false positive findings is its ability to sematically understand
+<strong>user-input sanitation</strong>. This feature enabled us to achieve a significantly low
+false alarms ratio compared to other SAST solutions. </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Dhscanner was built as a collaborative research
+effort by a team of programming languages Phd's from <a href="https://english.tau.ac.il/">Tel Aviv University</a>.</p>
+</div>
+<p>There are three ways to use dhscanner:</p>
+<ul>
+<li>From <a href="getting_started/ci_cd/">CI/CD pipelines</a> ( 👈 preferred and easiest way )</li>
+<li>From the <a href="getting_started/cli/">CLI</a></li>
+<li>Use our "monstrous" server ( mostly for research )</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>It is possible to shift your non-research workload to our server.
+Please <a href="https://github.com/OrenGitHub/dhscanner/issues">open up an issue</a> if this is relevant for your needs.</p>
+</div>
 
 
 

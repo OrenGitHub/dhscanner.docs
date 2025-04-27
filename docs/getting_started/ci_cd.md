@@ -1,12 +1,20 @@
 # CI/CD
 
-Scanning your code on every pull request is the preferred way
-of monitoring your applications for vulnerabilities. Your code never
+!!! info "Info"
+    The **easiest** way to monitor your application is
+    by setting a regular workflow to scan your code on
+    every **push** and **pull request**. Even for code repositories with
+    thousands of files, it typically takes just a couple of minutes
+    to complete.
+
+We care about your privacy. Your code never
 leaves the workflow environment. It is not logged anywhere.
-There are no incremental scans, and no part of your code is cached.
-The rules used to scan your code were carefully picked by both
-LLMs and security professionals. Normal users don't need to adjust
-rules at all ( though they sure *can* if they want to ).
+There are no incremental scans. No part of your code is cached.
+
+!!! tip "Pro Tip"
+    Normal users don't need to configure **anything**.
+    The default setting of our scanner uses rules that were **carefully picked** by both
+    security professionals and large language models ( LLMs ).
 
 !!! note "Note"
     Currently, only GitHub Action yaml is supported.
